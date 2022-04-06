@@ -8,7 +8,7 @@ RTC_DS1307 RTC;
 
 int hr_24, hr_12;
 int HOUR, MINUT, SECOND;
-
+char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 void setup()
 {
   Wire.begin();
@@ -64,7 +64,8 @@ void setup()
     lcd.print(now.month(), DEC);
     lcd.print("/");
     lcd.print(now.year(), DEC);
-   
+    lcd.print("/");
+    lcd.print(daysOfTheWeek[now.dayOfTheWeek()]);
     delay(1000);
   }
 
